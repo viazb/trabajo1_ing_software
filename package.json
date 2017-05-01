@@ -1,0 +1,19 @@
+{
+  "name": "tabla_busqueda",
+  "version": "1.0.0",
+  "description": "Trabajo Ing. Software",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "vdiazb",
+  "license": "MIT",
+  "devDependencies": {
+    "bower": "^1.7.9",
+    "express": "^4.13.4",
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

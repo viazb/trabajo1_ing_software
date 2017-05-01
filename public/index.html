@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="table" ng-controller="TableController">
+<head>
+	<meta charset="UTF-8">
+	<title>Trabajo Ing. Software</title>
+	<link rel="stylesheet" href="assets/bower_components/foundation/css/foundation.min.css">
+	<link rel="stylesheet" href="assets/bower_components/foundation/css/normalize.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<header>
+	<tr class="header">
+	          <th scope="colgroup" colspan="4">
+	            <!-- Imagen logo -->
+	            <div class="img_header">
+	              <img src="http://www.uacj.mx/CSB/BIVIR/PublishingImages/logo-BIVIR.png" width="200px" />
+	            </div>
+	            <!-- Texto Usuario -->
+	            <div class="usuario_header">
+								<label for="usuario">Usuario</label>
+	              <p><span>Alicia Carrasco</span></p>
+	            </div>
+	          </th>
+	        </tr>
+</header>
+<body>
+	<script>
+	</script>
+<div class="container-barra">
+	<div class="barra">
+	<ul class="nav nav-pills nav-justified">
+		<li class="nav-item">
+			<a class="nav-link" href="#">Home</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link active" href="#">Busquedas</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="#">Reservas</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link " href="#">Trabajos</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link " href="#">Usuarios</a>
+		</li>
+	</ul>
+</div>
+</div>
+
+<div class="row">
+<div class="container-jumbo">
+	  <div class="jumbotron">
+	<div class="row">
+		<div class="columns">
+			<label class="label-filtro"><span>Buscar por</span></label>
+			<select ng-options="item as item.label for item in types"
+				ng-model="type" ng-change="changeData()"></select>
+		</div>
+	</div>
+<div class = "filtros">
+	<div class="row">
+		<div class="columns small-6">
+			<label class="label-filtro"><span>Filtrar</span></label>
+			<input type="text" ng-model="search[selectFilter]" >
+		</div>
+		<div class="columns small-6">
+
+			<label class="label-filtro"><span>Filtrar por</span></label>
+			<select ng-model="selectFilter" ng-init="selectFilter='$'" ng-change="changeFilterTo();">
+				<option ng-repeat="item in filter[0]" value="{{item}}">
+					{{filter[1][$index] | uppercase}}
+				</option>
+			</select>
+		</div>
+	</div>
+</div>
+	<div class="row">
+		<div class="columns">
+			<table class="tabla">
+				<tr ng-if="data.length > 0">
+					<th class="order" ng-repeat="item in head" ng-click="order(propertiesHead[$index])" >
+						{{item | uppercase}}
+						<i ng-show="orderBy.predicate==propertiesHead[$index]" ng-class="{'up':orderBy.reverse,'down':!orderBy.reverse}"></i>
+					</th>
+				</tr>
+				<tr ng-if="data.length > 0" dir-paginate="col in data | orderBy : orderBy.predicate : orderBy.reverse | filter : search | itemsPerPage : limit.per_page">
+					<td ng-repeat="item in col">{{item}}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<div class="order-paginator">
+		<div class="columns">
+			<dir-pagination-controls max-size="5" direction-links="true" boundary-links="true"></dir-pagination-controls>
+		</div>
+	</div>
+
+		</div>
+	</div>
+</div>
+<footer>
+	<div class="footer-bottom">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<!--Footer Bottom-->
+				<p class="text-xs-center">&copy; Copyright 2016 - City of USA.  All rights reserved.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+</footer>
+	<script src="assets/bower_components/angular/angular.min.js"></script>
+	<script src="assets/bower_components/angularUtils-pagination/dirPagination.js"></script>
+	<script src="assets/js/app.js"></script>
+	<script src="assets/js/controller.js"></script>
+	<script src="assets/js/filters.js"></script>
+	<script src="assets/js/services.js"></script>
+</script>
+
+</body>
+</html>
