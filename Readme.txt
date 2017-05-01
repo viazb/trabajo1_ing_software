@@ -1,10 +1,10 @@
 Trábajo Nº1 de Ingeniería de Software
-Profesor: Fabian González
+Profesor: Fabián González
 Alumnos: Victor Diaz Bascur, Lilian Melgarejo.
 
 Para ejecutar porgrama se ebe tener instaldo nodejs y npm.
 1-	Descomprimir archivo
 2-	Realizar instalacion de dependencias, en ruta de archivo descomprimido ejecutar por consola <npm install>
-3-	Correr servdor, ejecutar en ruta de archivo descomprimido <node server.js>
+3-	Correr servdir, ejecutar en ruta de archivo descomprimido <node server.js>
 4-	Abrir pagina en url http://localhost:300
 
